@@ -18,7 +18,6 @@
   </head>
   <body>
     <header class="site-header" id="start">
-      <img class="logo" src="imager/mein-foto.jpg" alt="Schwesterherz" />
       <button
         class="menu-toggle"
         type="button"
@@ -40,11 +39,36 @@
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
-        <div
-          class="hero-image image-placeholder"
-          role="img"
-          aria-label="Eigenes Musikerfoto hier einsetzen"
-        ></div>
+        <div class="hero-image image-placeholder" role="img" aria-label="Schwesterherz Herzlogo">
+          <svg
+            viewBox="0 0 1200 900"
+            aria-hidden="true"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <path
+              class="heart-outline"
+              d="M600 170
+                 C530 90 390 100 330 210
+                 C270 315 302 426 448 541
+                 C525 606 565 645 600 684
+                 C635 645 675 606 752 541
+                 C898 426 930 315 870 210
+                 C810 100 670 90 600 170 Z"
+            />
+            <path
+              class="heart-outline subtle"
+              d="M600 170 C530 90 390 100 330 210 C270 315 302 426 448 541 C525 606 565 645 600 684 C635 645 675 606 752 541 C898 426 930 315 870 210 C810 100 670 90 600 170 Z"
+            />
+            <path
+              class="heart-line"
+              d="M350 465 C430 530 505 585 600 700 C695 585 770 530 850 465"
+            />
+            <text x="600" y="410" class="brand-name">Schwesterherz</text>
+            <text x="600" y="560" class="brand-subtitle">Musik mit Herz</text>
+            <path class="script-arc" d="M290 375 C380 470, 500 500, 600 500 C710 500, 830 470, 910 375"/>
+            <path class="script-arc right" d="M670 395 C760 475, 900 500, 1060 415"/>
+          </svg>
+        </div>
         <div class="hero-content">
           <p class="eyebrow">Live-Musik für eure Geschichte</p>
           <h1 id="hero-title">Musik, die<br /><em>bleibt.</em></h1>
@@ -179,8 +203,19 @@
           <p>
             Erzählt uns von eurem großen Tag. Wir melden uns persönlich bei euch.
           </p>
-          <form class="contact-form">
-              <div class="form-group">
+        <form class="contact-form" 
+              action="https://api.web3forms.com/submit" 
+              method="POST"
+          >
+          
+          <!-- WEb3Forms Acces key --->
+           <input 
+            type="hidden" 
+            name="access_key" 
+            value="a52d325a-5009-4cd3-9b31-76ecd3b59890"
+          />
+
+          <div class="form-group">
                 <label for="name"> Vor- und Nachname von euch beiden</label>
                 <input 
                   type="text"
@@ -199,6 +234,7 @@
                   name="email"
                   placeholder="Eure E-Mail Adresse"
                   required
+                />
               </div>
 
               <div class="form-group">
@@ -211,17 +247,26 @@
                   required
                 />
               </div>
-              <div class="form-group">
-                <label for="wedding-type"> Art der Hochzeit</label>
-                <select id="wedding-type" name="wedding-type" required>
-                  <option value="">Bitte auswählen</option>
-                  <option value="freie-trauung">Freie Trauung</option>
-                  <option value="kirchliche-trauung">Kirchliche Trauung</option>
-                </select>
-              </div>
+             <div class="form-group">
+  <label for="wedding-type">Art der Feier</label>
+  <select id="wedding-type" name="wedding-type" required>
+    <option value="">Bitte auswählen</option>
+    <option value="freie-trauung">Freie Trauung</option>
+    <option value="kirchliche-trauung">Kirchliche Trauung</option>
+    <option value="taufen">Taufe</option>
+  </select>
+</div>
 
+<div class="form-group" id="sektempfang-group" hidden>
+  <label for="sektempfang">Mit Sektempfang?</label>
+  <select id="sektempfang" name="sektempfang">
+    <option value="">Bitte auswählen</option>
+    <option value="ja">Ja</option>
+    <option value="nein">Nein</option>
+  </select>
+</div>
               <div class="form-group">
-                <label for="date">Wann ist die Hochzeit?</label>
+                <label for="date">Wann ist das Event?</label>
                 <input
                   type="date"
                   id="date"
@@ -231,7 +276,7 @@
               </div>
 
               <div class="form-group">
-                <label for="time">Wann beginnt die Hochzeit?</label>
+                <label for="time">Wann beginnt das Event?</label>
                 <input
                   type="time"
                   id="time"
@@ -246,7 +291,7 @@
                   id="message"
                   name="message"
                   rows="5"
-                  placeholder="Erzähle und gerne mehr über eire Hochzeit..."
+                  placeholder="Erzähle und gerne mehr über eure Hochzeit..."
                 ></textarea>
               </div>
 
@@ -255,7 +300,7 @@
               </button>
 
               <div class="contac-details">
-                <span>Schwesternherz_musikmitHerz</span>
+                <span>@Schwesternherz_musikmitHerz</span>
               </div>
 
     <footer class="site-footer">

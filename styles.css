@@ -30,6 +30,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
 .site-header {
   position: absolute;
   z-index: 5;
@@ -179,18 +180,67 @@ a {
   background-size: cover;
 }
 .hero-image {
-  background-image:
-    linear-gradient(90deg, rgba(20, 32, 31, 0.8), rgba(20, 32, 31, 0.14)),
-    url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=85");
+  background: #f3e1d6;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.hero-image svg {
+  width: min(1200px, 90vw);
+  height: auto;
+  max-height: 90%;
+  display: block;
+}
+.heart-outline {
+  fill: none;
+  stroke: #4b2c32;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.heart-outline.subtle {
+  opacity: 0.2;
+  stroke-width: 3;
+}
+.heart-line {
+  fill: none;
+  stroke: #4b2c32;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.7;
+}
+.script-arc {
+  fill: none;
+  stroke: #4b2c32;
+  stroke-width: 6;
+  stroke-linecap: round;
+  opacity: 0.9;
+}
+.script-arc.right {
+  stroke-width: 5;
+}
+.brand-name,
+.brand-subtitle {
+  fill: #4b2c32;
+  text-anchor: middle;
+}
+.brand-name {
+  font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 150px;
+  font-weight: 700;
+  letter-spacing: -5px;
+  font-style: italic;
+}
+.brand-subtitle {
+  font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 88px;
+  font-weight: 700;
+  letter-spacing: -3px;
+  font-style: italic;
 }
 .image-placeholder::after {
-  content: "EIGENES FOTO EINFÜGEN";
-  position: absolute;
-  right: 5vw;
-  bottom: 28px;
-  color: rgba(244, 240, 232, 0.65);
-  font-size: 10px;
-  letter-spacing: 0.16em;
+  content: none;
 }
 .hero-content {
   position: relative;
@@ -520,5 +570,116 @@ em {
   .site-footer span:last-child {
     width: 100%;
     order: 3;
+  }
+}
+/* ==========================
+  Kontaktformular
+  =========================== */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Einzelne Formularfelder */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Beschriftung der Formularfelder */
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/*Eingabefelder */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 52px;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: white;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #1f2937;
+  box-sizing: border-box;
+  border-radius: 0;
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.form-group input[type="date"],
+.form-group input[type="time"] {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  height: 52px;
+  padding: 0.9rem 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  line-height: normal;
+  font: inherit;
+}
+
+/* Platzhalter */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+/* Wenn man ein Feld anklickt */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1f2937;
+  box-shadow: 0 0 0 2px rgba(31, 41, 55, 0.08);
+}
+
+/* Textfeld */
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Dropdown */
+.form-group select {
+  cursor: pointer;
+}
+
+/* Absender-Button */
+.contact-form .button {
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* button beim Überfahren */
+.contact-form .button:hover {
+  transform: translateY(-2px);
+}
+
+/* Auf kleinere Bildschirmen */
+@media (max-width: 700px) {
+  .contact-form {
+    max-width: 100%;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px;
   }
 }
