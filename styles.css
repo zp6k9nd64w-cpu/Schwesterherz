@@ -180,10 +180,32 @@ a {
   background-size: cover;
 }
 .hero-image {
-  background: #f3e1d6;
-  display: grid;
-  place-items: center;
+  background: transparent;
+  display: block;
   overflow: hidden;
+}
+.hero-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+.contact-image {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 50%;
+  background: transparent;
+  overflow: hidden;
+}
+.contact-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
 }
 .hero-image svg {
   width: min(1200px, 90vw);
@@ -469,11 +491,10 @@ em {
   color: var(--cream);
 }
 .contact-image {
-  right: 50%;
+  left: 0;
+  top: 0;
+  width: 50%;
   opacity: 0.92;
-  background-image:
-    linear-gradient(90deg, rgba(183, 102, 77, 0.1), rgba(183, 102, 77, 0.85)),
-    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=85");
 }
 .contact-content {
   position: relative;
