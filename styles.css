@@ -124,20 +124,22 @@ a {
 }
 
 .main-menu {
-  position: fixed;
-  inset: 0;
-  display: grid;
-  align-content: center;
-  gap: 18px;
-  padding: 10vw;
-  background: var(--ink);
-  color: var(--cream);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition:
-    opacity 0.35s ease,
-    transform 0.35s ease;
+    position: fixed;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 8vw;
+    padding: 8vw;
+    background: var(--ink);
+    color: var(--cream);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+
 }
 
 .main-menu.is-open {
@@ -149,11 +151,16 @@ a {
 .main-menu a {
   display: flex;
   justify-content: space-between;
-  max-width: 560px;
+
+  width: 100%;
+
   border-bottom: 1px solid rgba(244, 240, 232, 0.25);
-  padding: 10px 0 18px;
+
+  padding: 18px 0;
+
   font-family: var(--serif);
-  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  font-size: clamp(2.6rem, 5vw, 5rem);
+
   line-height: 1;
 }
 
@@ -163,12 +170,14 @@ a {
   opacity: 0.65;
 }
 .hero {
-  position: relative;
+  Position: relative;
   min-height: 700px;
   height: 92vh;
   overflow: hidden;
-  display: grid;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: var(--ink);
   color: var(--cream);
 }
@@ -180,17 +189,25 @@ a {
   background-size: cover;
 }
 .hero-image {
-  background: transparent;
-  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 4vw 20px;
+
   overflow: hidden;
 }
 .hero-image img {
-  position: absolute;
-  inset: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
+  max-width: 1400px;
+  height: auto;
+
+  object-fit: contain;
+  
   display: block;
 }
 .hero-image svg {
@@ -252,9 +269,14 @@ a {
 }
 .hero-content {
   position: relative;
-  z-index: 1;
-  max-width: 720px;
-  margin: 0 5vw 10vh;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .eyebrow {
   margin: 0 0 18px;
@@ -579,6 +601,32 @@ em {
     width: 100%;
     order: 3;
   }
+
+  .main-menu {
+
+    grid-template-columns: 1fr;
+
+    align-content: center;
+
+    gap: 35px;
+
+    padding: 20vw 8vw 8vw;
+
+}
+
+.main-menu a {
+
+    font-size: 2.3rem;
+
+    padding: 12px 0 16px;
+
+}
+
+.menu-logo img {
+
+    max-width: 280px;
+
+}
 }
 /* ==========================
   Kontaktformular
@@ -690,4 +738,201 @@ em {
   .form-group textarea {
     font-size: 16px;
   }
+}
+
+/* ========================================
+
+   HÖRPROBEN-TEASER AUF DER STARTSEITE
+
+======================================== */
+
+.hoerproben-teaser {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 140px 7vw 110px;
+
+    background: var(--cream);
+
+    color: var(--ink);
+
+}
+
+/* Kleine Überschrift */
+
+.hoerproben-teaser .eyebrow {
+
+    margin: 0 0 20px;
+
+    color: var(--rust);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+}
+
+/* Große Überschrift */
+
+.hoerproben-teaser h2 {
+
+    max-width: 850px;
+
+    margin: 0;
+
+    font-family: var(--serif);
+
+    font-size: clamp(3.5rem, 8vw, 7rem);
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.04em;
+
+}
+
+.hoerproben-teaser h2 em {
+
+    color: var(--rust);
+
+    font-weight: 500;
+
+    font-style: italic;
+
+}
+
+/* Beschreibung */
+
+.hoerproben-teaser > p:not(.eyebrow) {
+
+    max-width: 560px;
+
+    margin: 35px 0 0;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+}
+
+/* Button */
+
+.hoerproben-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    margin-top: 40px;
+
+    padding: 18px 24px;
+
+    background: var(--ink);
+
+    color: var(--cream);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    transition:
+
+        transform 0.25s ease,
+
+        background 0.25s ease;
+
+}
+
+.hoerproben-link:hover {
+
+    transform: translateY(-3px);
+
+    background: #243937;
+
+}
+
+.hoerproben-link span {
+
+    font-size: 18px;
+
+    transition: transform 0.25s ease;
+
+}
+
+.hoerproben-link:hover span {
+
+    transform: translateX(5px);
+
+}
+
+/* ========================================
+
+   HANDY
+
+======================================== */
+
+@media (max-width: 700px) {
+
+    .hoerproben-teaser {
+
+        padding: 75px 5vw;
+
+    }
+
+    .hoerproben-teaser h2 {
+
+        font-size: clamp(3rem, 15vw, 5rem);
+
+    }
+
+    .hoerproben-teaser > p:not(.eyebrow) {
+
+        margin-top: 28px;
+
+        font-size: 16px;
+
+    }
+
+    .hoerproben-link {
+
+        gap: 28px;
+
+        margin-top: 32px;
+        padding: 16px 20px;
+    }
+}
+
+.menu-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.menu-logo img {
+  display: block;
+
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+
+  object-fit: contain;
 }

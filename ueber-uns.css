@@ -1,0 +1,525 @@
+/* ========================================
+   GRUNDEINSTELLUNGEN
+======================================== */
+
+:root {
+    --ink: #1b2928;
+    --cream: #f4f0e8;
+    --paper: #fbfaf7;
+    --sage: #a8b9a7;
+    --rust: #b7664d;
+
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.site-header {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 28px 5vw;
+}
+
+
+/* ========================================
+   BURGER-BUTTON
+======================================== */
+
+.menu-toggle {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    border: 0;
+    background: none;
+
+    color: var(--ink);
+    font: inherit;
+
+    cursor: pointer;
+}
+
+.menu-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.menu-icon {
+    display: grid;
+    gap: 6px;
+    width: 28px;
+}
+
+.menu-icon i {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+}
+
+
+/* ========================================
+   GEÖFFNETES BURGER-MENÜ
+======================================== */
+
+.main-menu {
+    position: fixed;
+    inset: 0;
+
+    display: grid;
+    align-content: center;
+    gap: 18px;
+
+    padding: 10vw;
+
+    background: var(--ink);
+    color: var(--cream);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateY(-10px);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+.main-menu.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.main-menu a {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 560px;
+
+    padding: 10px 0 18px;
+
+    border-bottom: 1px solid rgba(244, 240, 232, 0.25);
+
+    color: inherit;
+    font-family: var(--serif);
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+.main-menu a span {
+    align-self: flex-start;
+
+    font-family: var(--sans);
+    font-size: 12px;
+
+    opacity: 0.65;
+}
+
+
+/* ========================================
+   HAUPTINHALT
+======================================== */
+
+main {
+    padding: 10px 2.5vw;
+}
+
+
+/* ========================================
+   ÜBERSCHRIFTEN
+======================================== */
+
+h1,
+h2 {
+    margin: 0;
+
+    font-family: var(--serif);
+    font-weight: 500;
+
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+}
+
+h1 {
+    font-size: clamp(4rem, 9vw, 8rem);
+}
+
+h2 {
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+}
+
+
+/* ========================================
+   ÜBER-UNS HERO
+======================================== */
+
+.about-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    gap: 60px;
+
+    padding: 80px 5vw 100px;
+}
+
+.about-hero-text {
+    max-width: 600px;
+}
+
+
+/* Kleine Überschrift "Das sind wir" */
+
+.eyebrow {
+    margin: 0 0 18px;
+
+    color: var(--rust);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+
+/* Vorstellungstext */
+
+.about-intro {
+    max-width: 500px;
+    margin-top: 30px;
+
+    font-size: 18px;
+}
+
+
+/* ========================================
+   HERO-BILD
+======================================== */
+
+.about-hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+.about-hero-image img {
+    display: block;
+
+    width: 100%;
+    max-width: 380px;
+
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* ========================================
+   TABLET / IPAD
+======================================== */
+
+@media (max-width: 900px) {
+
+    .about-hero {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding: 40px 5vw 70px;
+    }
+
+    .about-hero-text {
+        max-width: 100%;
+    }
+
+    .about-intro {
+        max-width: 700px;
+    }
+
+    .about-hero-image img {
+        width: 55%;
+        max-width: 300px;
+    }
+}
+
+
+/* ========================================
+   HANDY
+======================================== */
+
+@media (max-width: 700px) {
+
+    .site-header {
+        padding: 20px 5vw;
+    }
+
+    main {
+        padding: 10px 5vw;
+    }
+
+    h1 {
+        font-size: clamp(3.5rem, 18vw, 6rem);
+    }
+
+    h2 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .about-hero {
+        gap: 30px;
+        padding: 35px 0 60px;
+    }
+
+    .about-intro {
+        margin-top: 24px;
+        font-size: 16px;
+    }
+
+    .about-hero-image img {
+        width: 70%;
+        max-width: 260px;
+    }
+
+    .main-menu {
+        padding: 8vw;
+    }
+
+    .main-menu a {
+        font-size: 2.2rem;
+    }
+}
+
+/*=======================
+    Unsere Geschichte
+=======================*/
+.story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+
+    padding: 100px 5vw;
+
+    background: var(--cream);
+}
+
+.story-heading h2 {
+    max-width: 600px;
+}
+
+.story-text {
+    max-width: 520px;
+    padding-top: 35px;
+}
+
+.story-text p {
+    margin: 0 0 28px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+    .story {
+        grid-template-columns: 1fr;
+        gap: 35px;
+
+        padding: 70px 5vw;
+    }
+
+    .story-text {
+        max-width: 650px;
+        padding-top: 0;
+    }
+}
+
+/*====================
+    Story Highlight
+====================*/
+.story-hightlight {
+    padding: 90px 5vw;
+    text-align: center;
+    background: var(--ink);
+    color: var(--cream);
+}
+
+.story-highlight-small {
+    margin: 0 0 15px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.story-highlight-big {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    line-height: 1;
+}
+
+.story-highlight-big em {
+    color: var(--rust);
+}
+
+/*=====================
+    Ein neues Kapitel
+=====================*/
+.new-chapter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+
+    padding: 110px 5vw;
+
+    background: var(--paper);
+}
+
+.chapter-heading h2 {
+    max-width: 650px;
+}
+
+.chapter-text {
+    max-width: 520px;
+    padding-top: 35px;
+}
+
+.chapter-text p {
+    margin: 0 0 28px;
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* Tablet/Ipad */
+@media (max-width: 900px) {
+    .new-chapter {
+        grid-template-columns: 1fr;
+        gap: 35px;
+
+        padding: 70px 5vw;
+    }
+
+    .chapter-text {
+        max-width: 650px;
+        padding-top: 0;
+    }
+}
+
+
+/*============
+    Abschluss
+============*/
+
+.about-closing {
+    padding: 120px 5vw;
+    text-align: center;
+
+    background: var(--sage);
+    color: var(--ink);
+}
+
+.about-closing h2 {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.closing-text {
+    max-width: 620px;
+    margin: 35px auto 0;
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.closing-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+
+    margin-top: 40px;
+    padding: 16px 22px;
+
+    background: var(--ink);
+    color: var(--cream);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.closing-button span {
+    font-size: 16px;
+}
+
+@media (max-width: 900px) {
+    .about-closing {
+        padding: 80px 5vw;
+    }
+
+    .closing-text {
+        font-size: 17px;
+    }
+}
+
+/*===================
+    Footer
+===================*/
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    padding: 28px 5 vw;
+
+    background: var(--ink);
+    color: var(--cream);
+
+    font-size: 12px;
+}
+
+.site-footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .site-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
