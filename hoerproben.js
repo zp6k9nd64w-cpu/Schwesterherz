@@ -1,43 +1,123 @@
+/* ========================================
+
+   BURGER-MENÜ
+
+======================================== */
+
 const menuButton = document.querySelector(".menu-toggle");
+
 const menu = document.querySelector(".main-menu");
 
-menuButton.addEvemtListener("click", () => {
-    const isOpen = menu.classList.toggle("is-open");
+if (menuButton && menu) {
 
-    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.addEventListener("click", () => {
 
-    document.body.styles.overflow = isOpen ? "hidden" : "";
-})
+        const isOpen = menu.classList.toggle("is-open");
 
-document.querySelectorAll(".main-menu a").forEach((Link) => {
-    Link.addEventListener("click", () => {
-        menu.classList.remove("is-open");
-        menuButton.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-    })
-})
+        menuButton.setAttribute(
 
-/*====================
-    Hörproben
-====================*/
-const playButtons = document.querySelectorAll(".play-button");
+            "aria-expanded",
 
-playButtons.forEach((button), () => {
-    button.addEventListener("click", () => {
-        const audioId = button.dataset.audio;
-        const audio = document.getElementById(audioId);
+            String(isOpen)
 
-        if (audio.paused) {
-            audio.play ();
-            button.textContent ="||";
+        );
+
+        document.body.style.overflow =
+
+            isOpen ? "hidden" : "";
+
+    });
+
+    document.querySelectorAll(".main-menu a").forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+            menu.classList.remove("is-open");
+
+            menuButton.setAttribute(
+
+                "aria-expanded",
+
+                "false"
+
+            );
+
+            document.body.style.overflow = "";
+
+        });
+
+    });
+
+}
+
+/* ========================================
+
+   HÖRPROBEN
+
+======================================== */
+
+const playButtons =
+
+    document.querySelectorAll(".play-button");
+
+playButtons.forEach((button) => {
+
+    const audioId = button.dataset.audio;
+
+    const audio =
+
+        document.getElementById(audioId);
+
+    if (!audio) {
+
+        console.error(
+
+            "Audio nicht gefunden:",
+
+            audioId
+
+        );
+
+        return;
+
+    }
+
+    button.addEventListener("click", async () => {
+
+        try {
+
+            if (audio.paused) {
+
+                await audio.play();
+
+                button.textContent = "Ⅱ";
+
+            } else {
+
+                audio.pause();
+
+                button.textContent = "▶";
+
+            }
+
+        } catch (error) {
+
+            console.error(
+
+                "Audio konnte nicht abgespielt werden:",
+
+                error
+
+            );
+
         }
 
-        else {
-            audio.pause();
-            button.textContent = "▶"
-        }
-    })
+    });
+
     audio.addEventListener("ended", () => {
-        button.textContent = "▶"
-    })
-})
+
+        button.textContent = "▶";
+
+    });
+
+});
