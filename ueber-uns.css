@@ -518,6 +518,11 @@ h2 {
         flex-direction: column;
         text-align: center;
     }
+    .menu-logo img {
+
+    max-width: 280px;
+
+}
 }
 
 html {
