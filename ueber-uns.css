@@ -89,10 +89,11 @@ body {
     inset: 0;
 
     display: grid;
-    align-content: center;
-    gap: 18px;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 8vw;
 
-    padding: 10vw;
+    padding: 8vw;
 
     background: var(--ink);
     color: var(--cream);
@@ -137,6 +138,23 @@ body {
     font-size: 12px;
 
     opacity: 0.65;
+}
+
+.menu-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    width: 100%;
+}
+
+.menu-logo img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    max-height: 70vh;
+    height: auto;
+    object-fit: contain;
 }
 
 
@@ -308,11 +326,19 @@ h2 {
     }
 
     .main-menu {
-        padding: 8vw;
+        grid-template-columns: 1fr;
+        align-content: center;
+        gap: 35px;
+        padding: 20vw 8vw 8vw;
     }
 
     .main-menu a {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
+        padding: 12px 0 16px;
+    }
+
+    .menu-logo img {
+        max-width: 280px;
     }
 }
 

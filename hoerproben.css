@@ -112,11 +112,12 @@ a {
     inset: 0;
 
     display: grid;
-    align-content: center;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
 
-    gap: 18px;
+    gap: 8vw;
 
-    padding: 10vw;
+    padding: 8vw;
 
     background: var(--ink);
     color: var(--cream);
@@ -162,6 +163,23 @@ a {
     font-size: 12px;
 
     opacity: 0.65;
+}
+
+.menu-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    width: 100%;
+}
+
+.menu-logo img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    max-height: 70vh;
+    height: auto;
+    object-fit: contain;
 }
 
 
@@ -393,6 +411,29 @@ a {
     background: var(--rust);
 }
 
+.player-track {
+    height: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.player-progress {
+    height: 100%;
+    border-radius: 10px;
+    pointer-events: none;
+    transition: width 0.1s linear; 
+}
+
+.player-time {
+    flex-shrink: 0;
+    min-width: 85px;
+    color: rgba(27, 41, 40, 0.7);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
 
 /* ========================================
    TERMIN-BEREICH
@@ -545,6 +586,10 @@ a {
     .sample-player {
         grid-column: 1;
     }
+
+    .menu-logo img {
+    max-width: 280px;
+    }
 }
 
 
@@ -646,14 +691,23 @@ a {
     }
 
     .main-menu {
-        padding: 8vw;
+        grid-template-columns: 1fr;
+        align-content: center;
+        gap: 35px;
+        padding: 20vw 8vw 8vw;
     }
 
     .main-menu a {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
+        padding: 12px 0 16px;
     }
 
     .menu-logo img {
-        max-width: 280px;
-}
+    max-width: 280px;
+    }
+
+    .player-time {
+        min-width: 76px;
+        font-size: 11px;
+    }
 }
