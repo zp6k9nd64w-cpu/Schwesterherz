@@ -387,7 +387,7 @@ h2 {
 /*====================
     Story Highlight
 ====================*/
-.story-hightlight {
+.story-highlight {
     padding: 90px 5vw;
     text-align: center;
     background: var(--ink);
@@ -526,7 +526,7 @@ h2 {
     align-items: center;
     gap: 20px;
 
-    padding: 28px 5 vw;
+    padding: 28px 5vw;
 
     background: var(--ink);
     color: var(--cream);
