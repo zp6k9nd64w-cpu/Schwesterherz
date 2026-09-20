@@ -184,7 +184,10 @@ a {
 
 .hero-logo {
   display: block;
-  width: min(90%, 900px);
+
+  width: min(75vw, 750px);
+  max-height: 90%;
+
   height: auto;
   object-fit: contain;
 }
@@ -919,6 +922,11 @@ em {
 
         margin-top: 32px;
         padding: 16px 20px;
+    }
+
+    .hero-logo {
+      width: 90vw;
+      max-height: 85%;
     }
 }
 
