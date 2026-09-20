@@ -33,18 +33,19 @@ a {
 
 .site-header {
   position: relative;
-  z-index: 5;
+  z-index: 100;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   width: 100%;
-  height: 90px;
+  height: 80px;
   padding: 0 5vw;
 
   background: var(--ink);
   color: var(--cream);
+
+  border-bottom: 1px solid rgba(244, 240, 232, 0.15);
 }
 
 .logo {
@@ -188,7 +189,7 @@ a {
 .hero-logo {
   display: block;
 
-  width: 420px;
+  width: 320px;
   max-width: 70vw;
   height: auto;
 }
@@ -203,13 +204,12 @@ a {
 .hero-image {
   width: 100%;
   height: auto;
-  min-height: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 35px 20px 10px;
+  padding: 45px 20px 25px;
   background: var(--ink);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-image svg {
