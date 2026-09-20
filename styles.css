@@ -181,6 +181,14 @@ a {
   background: var(--ink);
   color: var(--cream);
 }
+
+.hero-logo {
+  display: block;
+  width: min(90%, 900px);
+  height: auto;
+  object-fit: contain;
+}
+
 .hero-image,
 .contact-image {
   position: absolute;
@@ -200,15 +208,7 @@ a {
   overflow: hidden;
   background: #f5d2c2
 }
-.hero-image img {
-  width: 100%;
-  max-width: 1400px;
-  height: auto;
 
-  object-fit: contain;
-  
-  display: block;
-}
 .hero-image svg {
   width: min(1200px, 90vw);
   height: auto;
