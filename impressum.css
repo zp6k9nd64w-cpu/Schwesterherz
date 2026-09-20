@@ -1,223 +1,594 @@
+/* ========================================
+   GRUNDEINSTELLUNGEN
+======================================== */
+
 :root {
     --ink: #1b2928;
     --cream: #f4f0e8;
     --paper: #fbfaf7;
+    --sage: #a8b9a7;
     --rust: #b7664d;
+    --pink: #f3c9b8;
     --line: rgba(27, 41, 40, 0.18);
+
     --serif: "Playfair Display", Georgia, serif;
     --sans: "DM Sans", sans-serif;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
+
     color: var(--ink);
     background: var(--paper);
+
     font-family: var(--sans);
     font-size: 16px;
     line-height: 1.5;
 }
-a { color: inherit; text-decoration: none; }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ========================================
+   HEADER / ROSA BALKEN
+======================================== */
 
 .site-header {
     position: relative;
-    z-index: 20;
-    width: 100%;
-    padding: 28px 5vw;
-}
+    z-index: 100;
 
-.menu-toggle {
-    position: relative;
-    z-index: 30;
     display: flex;
     align-items: center;
-    gap: 12px;
-    border: 0;
-    background: none;
-    color: var(--ink);
-    font: inherit;
-    cursor: pointer;
-}
-.menu-label {
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-.menu-icon { display: grid; gap: 6px; width: 28px; }
-.menu-icon i {
-    display: block;
-    width: 100%;
-    height: 1px;
-    background: currentColor;
-}
-
-.main-menu {
-    position: fixed;
-    z-index: 25;
-    inset: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 8vw;
-    padding: 8vw;
-    background: var(--ink);
-    color: var(--cream);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: opacity 0.35s ease, transform 0.35s ease;
-}
-.main-menu.is-open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
-.main-menu a {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 560px;
-    padding: 10px 0 18px;
-    border-bottom: 1px solid rgba(244, 240, 232, 0.25);
-    font-family: var(--serif);
-    font-size: clamp(2.6rem, 5vw, 5rem);
-    line-height: 1;
-}
-.main-menu a span {
-    align-self: flex-start;
-    font: 12px var(--sans);
-    opacity: 0.65;
-}
-.menu-logo {
-    display: flex;
     justify-content: center;
-    align-items: center;
-    min-width: 0;
+
     width: 100%;
+    height: 150px;
+
+    padding: 0 5vw;
+
+    background: var(--pink);
+    color: var(--ink);
 }
-.menu-logo img {
+
+
+/* ========================================
+   LOGO IM HEADER
+======================================== */
+
+.header-logo {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 101;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo img {
     display: block;
-    width: 100%;
-    max-width: 600px;
-    max-height: 70vh;
+
+    width: 170px;
+    max-height: 135px;
     height: auto;
+
     object-fit: contain;
 }
 
-main { padding: 10px 7vw 0; }
-.legal-hero {
-    padding: 100px 0 110px;
-    border-bottom: 1px solid var(--line);
+
+/* ========================================
+   BURGER-BUTTON
+======================================== */
+
+.menu-toggle {
+    position: absolute;
+
+    left: 5vw;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 102;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: none;
+    color: var(--ink);
+
+    font: inherit;
+
+    cursor: pointer;
 }
-.eyebrow {
-    margin: 0 0 22px;
-    color: var(--rust);
+
+.menu-label {
     font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
+
+    letter-spacing: 0.12em;
+
     text-transform: uppercase;
 }
+
+.menu-icon {
+    display: grid;
+
+    gap: 6px;
+
+    width: 28px;
+}
+
+.menu-icon i {
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    background: currentColor;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* ========================================
+   BURGER-MENÜ
+======================================== */
+
+.main-menu {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 101;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 8vw;
+
+    padding: 8vw;
+
+    background: var(--ink);
+    color: var(--cream);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translateY(-10px);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+.main-menu.is-open {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+.menu-links {
+    width: 100%;
+}
+
+.main-menu a {
+    display: flex;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid rgba(244, 240, 232, 0.25);
+
+    font-family: var(--serif);
+
+    font-size: clamp(2.6rem, 5vw, 5rem);
+
+    line-height: 1;
+}
+
+.main-menu a span {
+    align-self: flex-start;
+
+    font-family: var(--sans);
+
+    font-size: 12px;
+
+    opacity: 0.65;
+}
+
+
+/* ========================================
+   LOGO IM BURGER-MENÜ
+======================================== */
+
+.menu-logo {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    min-width: 0;
+}
+
+.menu-logo img {
+    display: block;
+
+    width: 100%;
+
+    max-width: 600px;
+    max-height: 70vh;
+
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* ========================================
+   HAUPTINHALT
+======================================== */
+
+main {
+    padding: 10px 7vw 0;
+}
+
+
+/* ========================================
+   IMPRESSUM HERO
+======================================== */
+
+.legal-hero {
+    padding: 100px 0 110px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+    margin: 0 0 22px;
+
+    color: var(--rust);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+}
+
 .legal-hero h1,
 .legal-closing h2 {
     margin: 0;
+
     font-family: var(--serif);
+
     font-size: clamp(5rem, 12vw, 10rem);
+
     font-weight: 500;
+
     line-height: 0.85;
+
     letter-spacing: -0.05em;
 }
+
 .legal-hero h1 em,
 .legal-closing h2 em {
     color: var(--rust);
+
     font-style: italic;
 }
-.legal-intro { margin: 35px 0 0; font-size: 18px; }
+
+.legal-intro {
+    margin: 35px 0 0;
+
+    font-size: 18px;
+}
+
+
+/* ========================================
+   IMPRESSUM INHALT
+======================================== */
+
 .legal-content {
     display: grid;
-    grid-template-columns: minmax(130px, 0.35fr) 1fr;
+
+    grid-template-columns:
+        minmax(130px, 0.35fr)
+        1fr;
+
     gap: 25px 7vw;
+
     max-width: 900px;
+
     padding: 90px 0;
 }
+
 .legal-number {
     color: var(--rust);
+
     font-size: 12px;
     font-weight: 700;
+
     letter-spacing: 0.12em;
+
     text-transform: uppercase;
 }
+
 .legal-block {
     padding-bottom: 45px;
+
     border-bottom: 1px solid var(--line);
 }
+
 .legal-block h2 {
     margin: 0 0 14px;
+
     font-family: var(--serif);
+
     font-size: clamp(2rem, 4vw, 3.5rem);
+
     font-weight: 500;
 }
-.legal-block p { margin: 0; }
-.legal-closing { padding: 100px 0 120px; }
+
+.legal-block p {
+    margin: 0;
+}
+
+
+/* ========================================
+   ABSCHLUSSBEREICH
+======================================== */
+
+.legal-closing {
+    padding: 100px 0 120px;
+}
+
+
+/* ========================================
+   ZURÜCK-BUTTON
+======================================== */
+
 .back-button {
     display: inline-flex;
+
+    align-items: center;
     justify-content: space-between;
+
     gap: 45px;
+
     margin-top: 45px;
+
     padding: 18px 24px;
+
     background: var(--ink);
     color: var(--cream);
+
     font-size: 11px;
     font-weight: 700;
+
     letter-spacing: 0.14em;
+
     text-transform: uppercase;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
 }
-.back-button span { 
-    font-size: 18px; 
-    align-items: center;   
+
+.back-button:hover {
+    transform: translateY(-3px);
+
+    background: var(--rust);
 }
+
+.back-button span {
+    font-size: 18px;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
 .site-footer {
     display: flex;
+
     justify-content: space-between;
+    align-items: center;
+
     gap: 20px;
+
     padding: 28px 7vw;
+
     background: var(--ink);
     color: var(--cream);
+
     font-size: 12px;
 }
+
+.site-footer a {
+    color: var(--sage);
+}
+
+
+/* ========================================
+   MOBILE ZEILENUMBRUCH
+======================================== */
 
 .mobile-break {
     display: none;
 }
 
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+    .legal-content {
+        grid-template-columns:
+            minmax(100px, 0.3fr)
+            1fr;
+
+        gap: 25px 5vw;
+    }
+}
+
+
+/* ========================================
+   HANDY
+======================================== */
+
 @media (max-width: 700px) {
-    .site-header { padding: 22px 6vw; }
+
+    /* Header */
+
+    .site-header {
+        height: 90px;
+
+        padding: 0 6vw;
+    }
+
+
+    /* Logo im Header */
+
+    .header-logo img {
+        width: 115px;
+
+        max-height: 82px;
+    }
+
+
+    /* Burger-Button */
+
+    .menu-toggle {
+        left: 6vw;
+    }
+
+    .menu-label {
+        font-size: 10px;
+    }
+
+    .menu-icon {
+        width: 24px;
+    }
+
+
+    /* Burger-Menü */
+
     .main-menu {
         grid-template-columns: 1fr;
+
         align-content: center;
+
         gap: 35px;
-        padding: 20vw 8vw 8vw;
+
+        padding: 18vh 8vw 8vw;
     }
-    .main-menu a { font-size: 2.3rem; padding: 12px 0 16px; }
-    .menu-logo img { max-width: 280px; }
-    .legal-hero { padding: 70px 0 75px; }
+
+    .main-menu a {
+        padding: 12px 0 16px;
+
+        font-size: 2.3rem;
+    }
+
+    .menu-logo img {
+        max-width: 240px;
+
+        max-height: 30vh;
+    }
+
+
+    /* Hauptinhalt */
+
+    main {
+        padding: 10px 6vw 0;
+    }
+
+
+    /* Impressum Hero */
+
+    .legal-hero {
+        padding: 70px 0 75px;
+    }
+
+    .legal-hero h1,
+    .legal-closing h2 {
+        font-size: clamp(4rem, 20vw, 6.5rem);
+    }
+
+    .legal-intro {
+        font-size: 16px;
+    }
+
+
+    /* Impressum Inhalt */
+
     .legal-content {
         grid-template-columns: 1fr;
+
         gap: 12px;
+
         padding: 65px 0;
     }
-    .legal-block { 
-        margin-bottom: 25px; 
+
+    .legal-block {
+        margin-bottom: 25px;
     }
 
-    .legal-closing { 
-        padding: 70px 0 85px; 
+
+    /* Abschluss */
+
+    .legal-closing {
+        padding: 70px 0 85px;
     }
 
-    .site-footer { 
+
+    /* Footer */
+
+    .site-footer {
         flex-direction: column;
-         text-align: center; 
-        }
+
+        gap: 12px;
+
+        text-align: center;
+    }
+
+
+    /* Nur auf dem Handy sichtbarer Umbruch */
 
     .mobile-break {
         display: block;

@@ -8,6 +8,7 @@
     --paper: #fbfaf7;
     --sage: #a8b9a7;
     --rust: #b7664d;
+    --pink: #f3c9b8;
     --line: rgba(27, 41, 40, 0.18);
 
     --serif: "Playfair Display", Georgia, serif;
@@ -40,18 +41,54 @@ a {
 
 
 /* ========================================
-   HEADER
+   HEADER / ROSA BALKEN
 ======================================== */
 
 .site-header {
     position: relative;
-    z-index: 20;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     width: 100%;
+    height: 150px;
 
-    padding: 28px 5vw;
+    padding: 0 5vw;
 
-    background: var(--cream);
+    background: var(--pink);
+    color: var(--ink);
+}
+
+
+/* ========================================
+   LOGO IM HEADER
+======================================== */
+
+.header-logo {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 101;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo img {
+    display: block;
+
+    width: 170px;
+    max-height: 135px;
+    height: auto;
+
+    object-fit: contain;
 }
 
 
@@ -60,12 +97,21 @@ a {
 ======================================== */
 
 .menu-toggle {
-    position: relative;
-    z-index: 30;
+    position: absolute;
+
+    left: 5vw;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 102;
 
     display: flex;
     align-items: center;
+
     gap: 12px;
+
+    padding: 0;
 
     border: 0;
 
@@ -81,11 +127,13 @@ a {
     font-size: 12px;
 
     letter-spacing: 0.12em;
+
     text-transform: uppercase;
 }
 
 .menu-icon {
     display: grid;
+
     gap: 6px;
 
     width: 28px;
@@ -98,6 +146,8 @@ a {
     height: 1px;
 
     background: currentColor;
+
+    transition: transform 0.3s ease;
 }
 
 
@@ -107,12 +157,15 @@ a {
 
 .main-menu {
     position: fixed;
-    z-index: 25;
 
     inset: 0;
 
+    z-index: 101;
+
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     align-items: center;
 
     gap: 8vw;
@@ -123,6 +176,7 @@ a {
     color: var(--cream);
 
     opacity: 0;
+
     pointer-events: none;
 
     transform: translateY(-10px);
@@ -134,24 +188,30 @@ a {
 
 .main-menu.is-open {
     opacity: 1;
+
     pointer-events: auto;
 
     transform: translateY(0);
 }
 
+.menu-links {
+    width: 100%;
+}
+
 .main-menu a {
     display: flex;
+
     justify-content: space-between;
 
     width: 100%;
-    max-width: 560px;
 
-    padding: 10px 0 18px;
+    padding: 18px 0;
 
     border-bottom: 1px solid rgba(244, 240, 232, 0.25);
 
     font-family: var(--serif);
-    font-size: clamp(2.6rem, 7vw, 5.5rem);
+
+    font-size: clamp(2.6rem, 5vw, 5rem);
 
     line-height: 1;
 }
@@ -160,25 +220,38 @@ a {
     align-self: flex-start;
 
     font-family: var(--sans);
+
     font-size: 12px;
 
     opacity: 0.65;
 }
 
+
+/* ========================================
+   LOGO IM BURGER-MENÜ
+======================================== */
+
 .menu-logo {
     display: flex;
+
     justify-content: center;
     align-items: center;
-    min-width: 0;
+
     width: 100%;
+
+    min-width: 0;
 }
 
 .menu-logo img {
     display: block;
+
     width: 100%;
+
     max-width: 600px;
     max-height: 70vh;
+
     height: auto;
+
     object-fit: contain;
 }
 
@@ -191,7 +264,9 @@ a {
     min-height: 560px;
 
     display: grid;
+
     grid-template-columns: 1.2fr 0.8fr;
+
     align-items: center;
 
     gap: 60px;
@@ -211,9 +286,11 @@ a {
     color: var(--rust);
 
     font-size: 12px;
+
     font-weight: 700;
 
     letter-spacing: 0.18em;
+
     text-transform: uppercase;
 }
 
@@ -221,10 +298,13 @@ a {
     margin: 0;
 
     font-family: var(--serif);
+
     font-size: clamp(5rem, 11vw, 9rem);
+
     font-weight: 500;
 
     line-height: 0.82;
+
     letter-spacing: -0.05em;
 }
 
@@ -232,6 +312,7 @@ a {
     color: var(--rust);
 
     font-weight: 500;
+
     font-style: italic;
 }
 
@@ -241,21 +322,28 @@ a {
     margin: 45px 0 0;
 
     font-size: 18px;
+
     line-height: 1.7;
 }
 
 
-/* Dekoration rechts */
+/* ========================================
+   HERO-DEKORATION
+======================================== */
 
 .hero-decoration {
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
     color: var(--rust);
 
     font-family: var(--serif);
+
     font-size: clamp(2rem, 4vw, 3.5rem);
+
     font-style: italic;
 
     line-height: 1.1;
@@ -311,9 +399,11 @@ a {
     color: var(--rust);
 
     font-size: 11px;
+
     font-weight: 700;
 
     letter-spacing: 0.16em;
+
     text-transform: uppercase;
 }
 
@@ -321,10 +411,13 @@ a {
     margin: 0;
 
     font-family: var(--serif);
+
     font-size: clamp(2.5rem, 5vw, 4.5rem);
+
     font-weight: 500;
 
     line-height: 1;
+
     letter-spacing: -0.035em;
 }
 
@@ -344,6 +437,7 @@ a {
     color: rgba(27, 41, 40, 0.72);
 
     font-family: var(--serif);
+
     font-size: 16px;
 
     line-height: 1.6;
@@ -358,6 +452,7 @@ a {
     grid-column: 1 / 2;
 
     display: flex;
+
     align-items: center;
 
     gap: 25px;
@@ -369,12 +464,14 @@ a {
     flex-shrink: 0;
 
     display: grid;
+
     place-items: center;
 
     width: 60px;
     height: 60px;
 
     border: none;
+
     border-radius: 50%;
 
     background: var(--ink);
@@ -399,38 +496,41 @@ a {
     position: relative;
 
     width: 100%;
-    height: 2px;
+    height: 6px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
 
     background: rgba(27, 41, 40, 0.2);
+
+    cursor: pointer;
 }
 
 .player-progress {
     width: 0;
     height: 100%;
 
+    border-radius: 10px;
+
     background: var(--rust);
-}
 
-.player-track {
-    height: 6px;
-    border-radius: 10px;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-.player-progress {
-    height: 100%;
-    border-radius: 10px;
     pointer-events: none;
-    transition: width 0.1s linear; 
+
+    transition: width 0.1s linear;
 }
 
 .player-time {
     flex-shrink: 0;
+
     min-width: 85px;
+
     color: rgba(27, 41, 40, 0.7);
+
     font-size: 12px;
+
     font-variant-numeric: tabular-nums;
+
     text-align: right;
 }
 
@@ -450,9 +550,11 @@ a {
     margin: 0 0 20px;
 
     font-size: 12px;
+
     font-weight: 700;
 
     letter-spacing: 0.18em;
+
     text-transform: uppercase;
 }
 
@@ -464,10 +566,13 @@ a {
     color: var(--cream);
 
     font-family: var(--serif);
+
     font-size: clamp(3rem, 7vw, 6rem);
+
     font-weight: 500;
 
     line-height: 0.95;
+
     letter-spacing: -0.04em;
 }
 
@@ -475,6 +580,7 @@ a {
     color: var(--cream);
 
     font-weight: 500;
+
     font-style: italic;
 }
 
@@ -486,26 +592,33 @@ a {
     color: var(--cream);
 
     font-size: 17px;
+
     line-height: 1.7;
 }
 
 .booking-button {
     display: inline-flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     gap: 45px;
 
     margin-top: 38px;
+
     padding: 18px 25px;
 
     background: var(--ink);
+
     color: var(--cream);
 
     font-size: 11px;
+
     font-weight: 700;
 
     letter-spacing: 0.15em;
+
     text-transform: uppercase;
 
     transition:
@@ -530,7 +643,9 @@ a {
 
 .site-footer {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     gap: 20px;
@@ -538,11 +653,13 @@ a {
     padding: 28px 5vw;
 
     background: var(--ink);
+
     color: var(--cream);
 
     font-size: 11px;
 
     letter-spacing: 0.08em;
+
     text-transform: uppercase;
 }
 
@@ -586,10 +703,6 @@ a {
     .sample-player {
         grid-column: 1;
     }
-
-    .menu-logo img {
-    max-width: 280px;
-    }
 }
 
 
@@ -599,9 +712,65 @@ a {
 
 @media (max-width: 700px) {
 
+    /* Header */
+
     .site-header {
-        padding: 20px 5vw;
+        height: 90px;
+
+        padding: 0 6vw;
     }
+
+
+    /* Logo im Header */
+
+    .header-logo img {
+        width: 115px;
+
+        max-height: 82px;
+    }
+
+
+    /* Burger-Button */
+
+    .menu-toggle {
+        left: 6vw;
+    }
+
+    .menu-label {
+        font-size: 10px;
+    }
+
+    .menu-icon {
+        width: 24px;
+    }
+
+
+    /* Burger-Menü */
+
+    .main-menu {
+        grid-template-columns: 1fr;
+
+        align-content: center;
+
+        gap: 35px;
+
+        padding: 18vh 8vw 8vw;
+    }
+
+    .main-menu a {
+        padding: 12px 0 16px;
+
+        font-size: 2.3rem;
+    }
+
+    .menu-logo img {
+        max-width: 240px;
+
+        max-height: 30vh;
+    }
+
+
+    /* Hero */
 
     .samples-hero {
         grid-template-columns: 1fr;
@@ -628,6 +797,9 @@ a {
 
         transform: rotate(-4deg);
     }
+
+
+    /* Hörproben */
 
     .samples-list {
         padding: 10px 5vw 75px;
@@ -664,6 +836,15 @@ a {
         height: 52px;
     }
 
+    .player-time {
+        min-width: 76px;
+
+        font-size: 11px;
+    }
+
+
+    /* Termin-Bereich */
+
     .booking-section {
         padding: 75px 5vw;
     }
@@ -682,32 +863,14 @@ a {
         padding: 16px 20px;
     }
 
+
+    /* Footer */
+
     .site-footer {
         flex-direction: column;
 
         gap: 12px;
 
         text-align: center;
-    }
-
-    .main-menu {
-        grid-template-columns: 1fr;
-        align-content: center;
-        gap: 35px;
-        padding: 20vw 8vw 8vw;
-    }
-
-    .main-menu a {
-        font-size: 2.3rem;
-        padding: 12px 0 16px;
-    }
-
-    .menu-logo img {
-    max-width: 280px;
-    }
-
-    .player-time {
-        min-width: 76px;
-        font-size: 11px;
     }
 }
