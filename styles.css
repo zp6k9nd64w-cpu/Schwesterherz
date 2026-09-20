@@ -32,16 +32,19 @@ a {
 }
 
 .site-header {
-  position: absolute;
+  position: relative;
   z-index: 5;
-  top: 0;
-  left: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   width: 100%;
-  padding: 28px 5vw;
-  color: var(--paper);
+  height: 90px;
+  padding: 0 5vw;
+
+  background: var(--ink);
+  color: var(--cream);
 }
 
 .logo {
@@ -185,11 +188,9 @@ a {
 .hero-logo {
   display: block;
 
-  width: min(75vw, 750px);
-  max-height: 90%;
-
+  width: 420px;
+  max-width: 70vw;
   height: auto;
-  object-fit: contain;
 }
 
 .hero-image,
@@ -200,16 +201,15 @@ a {
   background-size: cover;
 }
 .hero-image {
-  position: relative;
   width: 100%;
-  height: 45%;
-
+  height: auto;
+  min-height: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  padding: 35px 20px 10px;
+  background: var(--ink);
   overflow: hidden;
-  background: #f5d2c2
 }
 
 .hero-image svg {
@@ -629,11 +629,22 @@ em {
 }
 
 .menu-logo img {
-
-    max-width: 280px;
-
+  max-width: 280px;
 }
+.hero-logo {
+  width: 300px;
+  max-width: 80vw;    
 }
+
+.hero-image {
+  padding: 25px 15px 5px;
+}
+
+.site-header {
+  height: 72px;
+  padding: 0 6vw
+}
+
 /* ==========================
   Kontaktformular
   =========================== */
