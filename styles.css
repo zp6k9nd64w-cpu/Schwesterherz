@@ -37,12 +37,14 @@ a {
 
   display: flex;
   align-items: center;
+  justify-content: center;
 
   width: 100%;
-  height: 80px;
+  height: 150px;
+
   padding: 0 5vw;
 
-  background: #f3cdbd;
+  background: #f3c9b8;
   color: var(--ink);
 }
 
@@ -94,14 +96,17 @@ a {
 }
 
 .menu-toggle {
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  left: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 102;
   display: flex;
   align-items: center;
   gap: 12px;
   border: 0;
-  color: inherit;
   background: none;
+  color: var(--ink);
   font: inherit;
   cursor: pointer;
 }
@@ -184,12 +189,15 @@ a {
   color: var(--cream);
 }
 
-.hero-logo {
+.header-logo img {
   display: block;
 
-  width: 320px;
-  max-width: 70vw;
+  width: 190px;
+  max-height: 130px;
+
   height: auto;
+
+  object-fit: contain;
 }
 
 .hero-image,
@@ -198,16 +206,6 @@ a {
   inset: 0;
   background-position: center;
   background-size: cover;
-}
-.hero-image {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 25px 20px 5px;
-  background: var(--ink);
-  overflow: visible;
 }
 
 .hero-image svg {
@@ -632,10 +630,6 @@ em {
 .hero-logo {
   width: 300px;
   max-width: 80vw;    
-}
-
-.hero-image {
-  padding: 25px 15px 5px;
 }
 
 .site-header {
