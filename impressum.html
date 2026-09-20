@@ -2,77 +2,98 @@
 
 <html lang="de">
 
-<head>
+<header
+    class="site-header"
+    id="start"
+  >
 
-    <meta charset="UTF-8">
+    <!-- Burger-Menü Button -->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <span class="menu-label">
+        Menü
+      </span>
 
-    <title>Impressum | Schwesterherz</title>
+      <span
+        class="menu-icon"
+        aria-hidden="true"
+      >
+        <i></i>
+        <i></i>
+      </span>
+    </button>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Logo im rosa Balken -->
 
-    <link
+    <a
+      href="index.html"
+      class="header-logo"
+      aria-label="Zur Startseite"
+    >
+      <img
+        src="images/logo_tran.PNG"
+        alt="Schwesterherz – Musik mit Herz"
+      >
+    </a>
 
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap"
 
-        rel="stylesheet"
+    <!-- Burger-Menü -->
 
+    <nav
+      class="main-menu"
+      id="main-menu"
+      aria-label="Hauptnavigation"
     >
 
-    <link rel="stylesheet" href="impressum.css">
+      <div class="menu-links">
 
-</head>
+        <a href="index.html">
+          Startseite
+          <span>01</span>
+        </a>
 
-<body id="start">
+        <a href="ueber-uns.html">
+          Über uns
+          <span>02</span>
+        </a>
 
-    <header class="site-header">
+        <a href="hoerproben.html">
+          Hörproben
+          <span>03</span>
+        </a>
 
-        <button
+        <a href="index.html#kontakt">
+          Kontakt
+          <span>04</span>
+        </a>
 
-            class="menu-toggle"
+        <a href="impressum.html">
+          Impressum
+          <span>05</span>
+        </a>
 
-            type="button"
+      </div>
 
-            aria-expanded="false"
 
-            aria-controls="main-menu"
+      <!-- Logo im geöffneten Burger-Menü -->
 
+      <div class="menu-logo">
+        <img
+          src="images/Logo.jpeg"
+          alt="Schwesterherz – Musik mit Herz"
         >
+      </div>
 
-            <span class="menu-label">Menü</span>
+    </nav>
 
-            <span class="menu-icon" aria-hidden="true">
+  </header>
 
-                <i></i>
-
-                <i></i>
-
-            </span>
-
-        </button>
-
-        <nav class="main-menu" id="main-menu" aria-label="Hauptnavigation">
-
-        <div class="menu-links">
-
-        <a href="index.html">Startseite <span>01</span></a>
-        <a href="ueber-uns.html">Über uns <span>02</span></a>
-        <a href="hoerproben.html">Hörproben <span>03</span></a>
-        <a href="./index.html#kontakt">Kontakt <span>04</span></a>
-        <a href="impressum.html">Impressum <span>05</span></a>
-        </div>
-
-        <div class="menu-logo">
-          <img  
-            src="images/Logo.jpeg"
-            alt="Schwesterherz - Musik mit Herz">
-        </div>
-      </nav>
-
-    </header>
 
     <main>
 
