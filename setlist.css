@@ -1,0 +1,286 @@
+/* ========================================
+   GRUNDEINSTELLUNGEN
+======================================== */
+
+:root {
+    --ink: #1b2928;
+    --cream: #f4f0e8;
+    --paper: #fbfaf7;
+    --sage: #a8b9a7;
+    --rust: #b7664d;
+    --pink: #f3c9b8;
+    --line: rgba(27, 41, 40, 0.18);
+
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: var(--paper);
+    color: var(--ink);
+
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ========================================
+   HEADER / ROSA BALKEN
+======================================== */
+
+.site-header {
+    position: relative;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 150px;
+
+    padding: 0 5vw;
+
+    background: var(--pink);
+    color: var(--ink);
+}
+
+
+/* ========================================
+   LOGO IM HEADER
+======================================== */
+
+.header-logo {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 101;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo img {
+    display: block;
+
+    width: 170px;
+    max-height: 135px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* ========================================
+   BURGER-BUTTON
+======================================== */
+
+.menu-toggle {
+    position: absolute;
+
+    left: 5vw;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 102;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: none;
+    color: var(--ink);
+
+    font: inherit;
+
+    cursor: pointer;
+}
+
+.menu-label {
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.12em;
+}
+
+.menu-icon {
+    display: grid;
+
+    gap: 6px;
+
+    width: 28px;
+}
+
+.menu-icon i {
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    background: currentColor;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* ========================================
+   GEÖFFNETES BURGER-MENÜ
+======================================== */
+
+.main-menu {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 101;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 8vw;
+
+    padding: 8vw;
+
+    background: var(--ink);
+    color: var(--cream);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translateY(-10px);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+.main-menu.is-open {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+.menu-links {
+    width: 100%;
+}
+
+.main-menu a {
+    display: flex;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid rgba(244, 240, 232, 0.25);
+
+    color: inherit;
+
+    font-family: var(--serif);
+
+    font-size: clamp(2.6rem, 5vw, 5rem);
+
+    line-height: 1;
+
+    text-decoration: none;
+}
+
+.main-menu a span {
+    align-self: flex-start;
+
+    font-family: var(--sans);
+
+    font-size: 12px;
+
+    opacity: 0.65;
+}
+
+
+/* ========================================
+   LOGO IM BURGER-MENÜ
+======================================== */
+
+.menu-logo {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    min-width: 0;
+}
+
+.menu-logo img {
+    display: block;
+
+    width: 100%;
+
+    max-width: 600px;
+    max-height: 70vh;
+
+    height: auto;
+
+    object-fit: contain;
+}
+
+.setlist {
+    padding: 80px 5vw;
+}
+
+.setlist h1 {
+    margin: 0;
+
+    font-family: var(--serif);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 500;
+}
+
+.setlist h1 em {
+    color: var(--rust);
+}
+
+.liste {
+    margin: 50px 0 0;
+    padding: 0;
+}
+
+.liste li {
+    padding: 20px 0;
+    border-bottom: 1px solid #1b2928;
+}
