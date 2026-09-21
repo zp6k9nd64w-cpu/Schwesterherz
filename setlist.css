@@ -501,7 +501,7 @@ a {
 /* Kleiner Pfeil beim Darüberfahren */
 
 .song-list li::after {
-    content: "→";
+    content: "";
 
     position: absolute;
 
@@ -850,11 +850,6 @@ a {
         padding-left: 0;
         padding-right: 0;
     }
-
-    .song-list li::after {
-        display: none;
-    }
-
 
     /* Abschluss */
 
