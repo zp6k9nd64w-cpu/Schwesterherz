@@ -1380,43 +1380,48 @@ a {
     letter-spacing: 0.08em;
 }
 
+.song-list li {
+    position: relative;
 
-/* Kleiner Pfeil beim Darüberfahren */
+    display: grid;
 
-.song-list li::after {
-    content: "→";
+    grid-template-columns:
+        50px
+        minmax(0, 1fr)
+        minmax(120px, auto);
 
-    position: absolute;
+    align-items: center;
 
-    right: 0;
+    gap: 18px;
 
-    color: var(--rust);
+    min-height: 82px;
 
-    font-size: 18px;
+    padding: 18px 0;
 
-    opacity: 0;
+    border-bottom: 1px solid var(--line);
 
-    transform: translateX(-10px);
+    counter-increment: song;
 
     transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
+        transform 0.25s ease,
+        opacity 0.25s ease;
 }
 
 
-/* Hover-Effekt */
+/* Song beim Darüberfahren hervorheben */
 
 .song-list li:hover {
-    padding-left: 10px;
-    padding-right: 35px;
+    transform: scale(1.025);
+
+    z-index: 2;
 }
 
-.song-list li:hover::after {
-    opacity: 1;
 
-    transform: translateX(0);
+/* Songtitel etwas stärker hervorheben */
+
+.song-list li:hover .song-title {
+    color: var(--rust);
 }
-
 
 /* Songtitel */
 
