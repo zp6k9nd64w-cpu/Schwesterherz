@@ -152,7 +152,7 @@ a {
 
 
 /* ========================================
-   BURGER-MENÜ
+   GEÖFFNETES BURGER-MENÜ
 ======================================== */
 
 .main-menu {
@@ -209,891 +209,17 @@ a {
 
     border-bottom: 1px solid rgba(244, 240, 232, 0.25);
 
+    color: inherit;
+
     font-family: var(--serif);
 
     font-size: clamp(2.2rem, 4vw, 4rem);
 
     line-height: 1;
-}
 
-.main-menu a span {
-    align-self: flex-start;
-
-    font-family: var(--sans);
-
-    font-size: 12px;
-
-    opacity: 0.65;
-}
-
-
-/* ========================================
-   LOGO IM BURGER-MENÜ
-======================================== */
-
-.menu-logo {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-
-    min-width: 0;
-}
-
-.menu-logo img {
-    display: block;
-
-    width: 100%;
-
-    max-width: 600px;
-    max-height: 70vh;
-
-    height: auto;
-
-    object-fit: contain;
-}
-
-
-/* ========================================
-   HERO
-======================================== */
-
-.setlist-hero {
-    position: relative;
-
-    min-height: 620px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 100px 7vw;
-
-    overflow: hidden;
-
-    background: var(--ink);
-    color: var(--cream);
-}
-
-.eyebrow {
-    margin: 0 0 22px;
-
-    color: var(--rust);
-
-    font-size: 12px;
-    font-weight: 700;
-
-    letter-spacing: 0.18em;
-
-    text-transform: uppercase;
-}
-
-.setlist-hero h1 {
-    margin: 0;
-
-    max-width: 900px;
-
-    font-family: var(--serif);
-
-    font-size: clamp(5rem, 12vw, 10rem);
-    font-weight: 500;
-
-    line-height: 0.82;
-
-    letter-spacing: -0.05em;
-}
-
-.setlist-hero h1 em {
-    color: var(--pink);
-
-    font-weight: 500;
-}
-
-.setlist-intro {
-    max-width: 570px;
-
-    margin: 45px 0 0;
-
-    color: rgba(244, 240, 232, 0.8);
-
-    font-size: 18px;
-
-    line-height: 1.7;
-}
-
-
-/* Kleine Dekoration rechts */
-
-.hero-note {
-    position: absolute;
-
-    right: 7vw;
-    bottom: 80px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 14px;
-
-    font-family: var(--serif);
-
-    font-size: 18px;
-
-    font-style: italic;
-}
-
-.hero-note span {
-    color: var(--pink);
-
-    font-family: var(--sans);
-
-    font-size: 38px;
-
-    font-style: normal;
-}
-
-
-/* ========================================
-   SETLIST
-======================================== */
-
-.setlist {
-    padding: 0;
-}
-
-
-/* ========================================
-   EINZELNER SONGBEREICH
-======================================== */
-
-.song-section {
-    display: grid;
-
-    grid-template-columns:
-        minmax(280px, 0.7fr)
-        minmax(400px, 1.3fr);
-
-    gap: 8vw;
-
-    padding: 120px 7vw;
-
-    background: var(--paper);
-}
-
-.song-section.sektempfang {
-    background: var(--cream);
-}
-
-
-/* ========================================
-   ÜBERSCHRIFT LINKS
-======================================== */
-
-.song-section-heading {
-    position: sticky;
-
-    top: 40px;
-
-    align-self: start;
-}
-
-.section-number {
-    margin: 0 0 25px;
-
-    color: var(--rust);
-
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: 0.16em;
-
-    text-transform: uppercase;
-}
-
-.song-section-heading h2 {
-    margin: 0;
-
-    font-family: var(--serif);
-
-    font-size: clamp(3.5rem, 6vw, 6rem);
-    font-weight: 500;
-
-    line-height: 0.92;
-
-    letter-spacing: -0.04em;
-}
-
-.song-section-heading h2 em {
-    color: var(--rust);
-
-    font-weight: 500;
-}
-
-.song-section-heading > p:last-child {
-    max-width: 380px;
-
-    margin: 30px 0 0;
-
-    font-size: 16px;
-
-    line-height: 1.7;
-}
-
-
-/* ========================================
-   SONGLISTE
-======================================== */
-
-.song-list {
-    margin: 0;
-
-    padding: 0;
-
-    list-style: none;
-
-    counter-reset: song;
-}
-
-.song-list li {
-    position: relative;
-
-    display: grid;
-
-    grid-template-columns:
-        50px
-        minmax(0, 1fr)
-        minmax(120px, auto);
-
-    align-items: center;
-
-    gap: 18px;
-
-    min-height: 82px;
-
-    padding: 18px 0;
-
-    border-bottom: 1px solid var(--line);
-
-    counter-increment: song;
-
-    transition:
-        padding 0.25s ease,
-        color 0.25s ease;
-}
-
-
-/* Automatische Nummer vor jedem Song */
-
-.song-list li::before {
-    content: counter(song, decimal-leading-zero);
-
-    color: var(--rust);
-
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: 0.08em;
-}
-
-
-/* Kleiner Pfeil beim Darüberfahren */
-
-.song-list li::after {
-    content: "";
-
-    position: absolute;
-
-    right: 0;
-
-    color: var(--rust);
-
-    font-size: 18px;
-
-    opacity: 0;
-
-    transform: translateX(-10px);
-
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-}
-
-
-/* Hover-Effekt */
-
-.song-list li:hover {
-    padding-left: 10px;
-    padding-right: 35px;
-}
-
-.song-list li:hover::after {
-    opacity: 1;
-
-    transform: translateX(0);
-}
-
-
-/* Songtitel */
-
-.song-title {
-    font-family: var(--serif);
-
-    font-size: clamp(1.35rem, 2vw, 1.8rem);
-
-    line-height: 1.2;
-}
-
-
-/* Künstler */
-
-.song-artist {
-    color: rgba(27, 41, 40, 0.6);
-
-    font-size: 12px;
-    font-weight: 500;
-
-    letter-spacing: 0.04em;
-
-    text-align: right;
-}
-
-
-/* ========================================
-   ABSCHLUSS
-======================================== */
-
-.setlist-closing {
-    padding: 130px 7vw;
-
-    text-align: center;
-
-    background: var(--sage);
-    color: var(--ink);
-}
-
-.setlist-closing .eyebrow {
-    color: var(--ink);
-
-    opacity: 0.7;
-}
-
-.setlist-closing h2 {
-    margin: 0 auto;
-
-    font-family: var(--serif);
-
-    font-size: clamp(4rem, 9vw, 8rem);
-    font-weight: 500;
-
-    line-height: 0.9;
-
-    letter-spacing: -0.05em;
-}
-
-.setlist-closing h2 em {
-    color: var(--rust);
-
-    font-weight: 500;
-}
-
-.setlist-closing > p:not(.eyebrow) {
-    max-width: 580px;
-
-    margin: 35px auto 0;
-
-    font-size: 18px;
-
-    line-height: 1.7;
-}
-
-
-/* ========================================
-   KONTAKT-BUTTON
-======================================== */
-
-.contact-button {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 35px;
-
-    margin-top: 45px;
-
-    padding: 18px 24px;
-
-    background: var(--ink);
-    color: var(--cream);
-
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: 0.14em;
-
-    text-transform: uppercase;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-}
-
-.contact-button span {
-    font-size: 18px;
-}
-
-.contact-button:hover {
-    transform: translateY(-3px);
-
-    background: var(--rust);
-}
-
-
-/* ========================================
-   FOOTER
-======================================== */
-
-.site-footer {
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 20px;
-
-    padding: 28px 7vw;
-
-    background: var(--ink);
-    color: var(--cream);
-
-    font-size: 12px;
-}
-
-.site-footer a {
-    color: var(--sage);
-}
-
-
-/* ========================================
-   TABLET
-======================================== */
-
-@media (max-width: 900px) {
-
-    .setlist-hero {
-        min-height: 560px;
-
-        padding: 80px 6vw;
-    }
-
-    .hero-note {
-        position: static;
-
-        margin-top: 50px;
-    }
-
-
-    /* Songbereiche untereinander */
-
-    .song-section {
-        grid-template-columns: 1fr;
-
-        gap: 65px;
-
-        padding: 90px 6vw;
-    }
-
-    .song-section-heading {
-        position: static;
-    }
-
-}
-
-
-/* ========================================
-   HANDY
-======================================== */
-
-@media (max-width: 700px) {
-
-    /* Header */
-
-    .site-header {
-        height: 90px;
-
-        padding: 0 6vw;
-    }
-
-
-    /* Header-Logo */
-
-    .header-logo img {
-        width: 115px;
-
-        max-height: 82px;
-    }
-
-
-    /* Burger */
-
-    .menu-toggle {
-        left: 6vw;
-    }
-
-    .menu-label {
-        font-size: 10px;
-    }
-
-    .menu-icon {
-        width: 24px;
-    }
-
-
-    /* Burger-Menü */
-
-    .main-menu {
-        grid-template-columns: 1fr;
-
-        align-content: center;
-
-        gap: 30px;
-
-        padding: 12vh 8vw 6vw;
-
-        overflow-y: auto;
-    }
-
-    .main-menu a {
-        padding: 10px 0 13px;
-
-        font-size: 2rem;
-    }
-
-    .menu-logo img {
-        max-width: 210px;
-
-        max-height: 22vh;
-    }
-
-
-    /* Hero */
-
-    .setlist-hero {
-        min-height: 600px;
-
-        padding: 75px 6vw;
-    }
-
-    .setlist-hero h1 {
-        font-size: clamp(4rem, 20vw, 6.5rem);
-    }
-
-    .setlist-intro {
-        margin-top: 35px;
-
-        font-size: 16px;
-    }
-
-    .hero-note {
-        margin-top: 40px;
-
-        font-size: 15px;
-    }
-
-
-    /* Songbereiche */
-
-    .song-section {
-        gap: 50px;
-
-        padding: 75px 6vw;
-    }
-
-    .song-section-heading h2 {
-        font-size: clamp(3.2rem, 14vw, 5rem);
-    }
-
-
-    /* Einzelne Songs */
-
-    .song-list li {
-        grid-template-columns:
-            35px
-            1fr;
-
-        gap: 12px;
-
-        min-height: 76px;
-
-        padding: 16px 0;
-    }
-
-    .song-title {
-        font-size: 1.3rem;
-    }
-
-    .song-artist {
-        grid-column: 2;
-
-        margin-top: -7px;
-
-        text-align: left;
-
-        font-size: 11px;
-    }
-
-
-    /* Hover auf Handy deaktivieren */
-
-    .song-list li:hover {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    /* Abschluss */
-
-    .setlist-closing {
-        padding: 90px 6vw;
-    }
-
-    .setlist-closing h2 {
-        font-size: clamp(4rem, 18vw, 6rem);
-    }
-
-    .setlist-closing > p:not(.eyebrow) {
-        font-size: 16px;
-    }
-
-
-    /* Footer */
-
-    .site-footer {
-        flex-direction: column;
-
-        gap: 12px;
-
-        text-align: center;
-    }
-
-}/* ========================================
-   GRUNDEINSTELLUNGEN
-======================================== */
-
-:root {
-    --ink: #1b2928;
-    --cream: #f4f0e8;
-    --paper: #fbfaf7;
-    --sage: #a8b9a7;
-    --rust: #b7664d;
-    --pink: #f3c9b8;
-    --line: rgba(27, 41, 40, 0.18);
-
-    --serif: "Playfair Display", Georgia, serif;
-    --sans: "DM Sans", sans-serif;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-
-    background: var(--paper);
-    color: var(--ink);
-
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-a {
-    color: inherit;
     text-decoration: none;
 }
 
-
-/* ========================================
-   HEADER / ROSA BALKEN
-======================================== */
-
-.site-header {
-    position: relative;
-    z-index: 100;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 150px;
-
-    padding: 0 5vw;
-
-    background: var(--pink);
-    color: var(--ink);
-}
-
-
-/* ========================================
-   LOGO IM HEADER
-======================================== */
-
-.header-logo {
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 101;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.header-logo img {
-    display: block;
-
-    width: 170px;
-    max-height: 135px;
-    height: auto;
-
-    object-fit: contain;
-}
-
-
-/* ========================================
-   BURGER-BUTTON
-======================================== */
-
-.menu-toggle {
-    position: absolute;
-
-    left: 5vw;
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    z-index: 102;
-
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-
-    padding: 0;
-
-    border: 0;
-
-    background: none;
-    color: var(--ink);
-
-    font: inherit;
-
-    cursor: pointer;
-}
-
-.menu-label {
-    font-size: 12px;
-
-    letter-spacing: 0.12em;
-
-    text-transform: uppercase;
-}
-
-.menu-icon {
-    display: grid;
-
-    gap: 6px;
-
-    width: 28px;
-}
-
-.menu-icon i {
-    display: block;
-
-    width: 100%;
-    height: 1px;
-
-    background: currentColor;
-
-    transition: transform 0.3s ease;
-}
-
-
-/* ========================================
-   BURGER-MENÜ
-======================================== */
-
-.main-menu {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 101;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    align-items: center;
-
-    gap: 8vw;
-
-    padding: 8vw;
-
-    background: var(--ink);
-    color: var(--cream);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transform: translateY(-10px);
-
-    transition:
-        opacity 0.35s ease,
-        transform 0.35s ease;
-}
-
-.main-menu.is-open {
-    opacity: 1;
-
-    pointer-events: auto;
-
-    transform: translateY(0);
-}
-
-.menu-links {
-    width: 100%;
-}
-
-.main-menu a {
-    display: flex;
-
-    justify-content: space-between;
-
-    width: 100%;
-
-    padding: 14px 0;
-
-    border-bottom: 1px solid rgba(244, 240, 232, 0.25);
-
-    font-family: var(--serif);
-
-    font-size: clamp(2.2rem, 4vw, 4rem);
-
-    line-height: 1;
-}
-
 .main-menu a span {
     align-self: flex-start;
 
@@ -1155,6 +281,9 @@ a {
     color: var(--cream);
 }
 
+
+/* Kleine Überschrift */
+
 .eyebrow {
     margin: 0 0 22px;
 
@@ -1167,6 +296,9 @@ a {
 
     text-transform: uppercase;
 }
+
+
+/* Große Überschrift */
 
 .setlist-hero h1 {
     margin: 0;
@@ -1188,6 +320,9 @@ a {
 
     font-weight: 500;
 }
+
+
+/* Beschreibung */
 
 .setlist-intro {
     max-width: 570px;
@@ -1259,6 +394,10 @@ a {
 
     background: var(--paper);
 }
+
+
+/* Sektempfang bekommt einen leicht
+   anderen Hintergrund */
 
 .song-section.sektempfang {
     background: var(--cream);
@@ -1334,6 +473,9 @@ a {
     counter-reset: song;
 }
 
+
+/* Einzelner Song */
+
 .song-list li {
     position: relative;
 
@@ -1356,13 +498,17 @@ a {
 
     counter-increment: song;
 
+    transform-origin: center;
+
     transition:
-        padding 0.25s ease,
+        transform 0.25s ease,
         color 0.25s ease;
 }
 
 
-/* Automatische Nummer vor jedem Song */
+/* ========================================
+   AUTOMATISCHE SONGNUMMER
+======================================== */
 
 .song-list li::before {
     content: counter(song, decimal-leading-zero);
@@ -1375,35 +521,13 @@ a {
     letter-spacing: 0.08em;
 }
 
-.song-list li {
-    position: relative;
 
-    display: grid;
+/* ========================================
+   HOVER-EFFEKT
 
-    grid-template-columns:
-        50px
-        minmax(0, 1fr)
-        minmax(120px, auto);
-
-    align-items: center;
-
-    gap: 18px;
-
-    min-height: 82px;
-
-    padding: 18px 0;
-
-    border-bottom: 1px solid var(--line);
-
-    counter-increment: song;
-
-    transition:
-        transform 0.25s ease,
-        opacity 0.25s ease;
-}
-
-
-/* Song beim Darüberfahren hervorheben */
+   Kein Pfeil.
+   Der Song kommt nur leicht nach vorne.
+======================================== */
 
 .song-list li:hover {
     transform: scale(1.025);
@@ -1412,13 +536,17 @@ a {
 }
 
 
-/* Songtitel etwas stärker hervorheben */
+/* Songtitel bekommt beim Hover
+   die Rostfarbe */
 
 .song-list li:hover .song-title {
     color: var(--rust);
 }
 
-/* Songtitel */
+
+/* ========================================
+   SONGTITEL
+======================================== */
 
 .song-title {
     font-family: var(--serif);
@@ -1426,10 +554,14 @@ a {
     font-size: clamp(1.35rem, 2vw, 1.8rem);
 
     line-height: 1.2;
+
+    transition: color 0.25s ease;
 }
 
 
-/* Künstler */
+/* ========================================
+   KÜNSTLER
+======================================== */
 
 .song-artist {
     color: rgba(27, 41, 40, 0.6);
@@ -1453,6 +585,7 @@ a {
     text-align: center;
 
     background: var(--sage);
+
     color: var(--ink);
 }
 
@@ -1564,11 +697,16 @@ a {
 
 @media (max-width: 900px) {
 
+    /* Hero */
+
     .setlist-hero {
         min-height: 560px;
 
         padding: 80px 6vw;
     }
+
+
+    /* Dekoration unter den Text */
 
     .hero-note {
         position: static;
@@ -1587,6 +725,10 @@ a {
         padding: 90px 6vw;
     }
 
+
+    /* Überschrift scrollt auf Tablet
+       normal mit */
+
     .song-section-heading {
         position: static;
     }
@@ -1600,7 +742,9 @@ a {
 
 @media (max-width: 700px) {
 
-    /* Header */
+    /* ========================================
+       HEADER
+    ======================================== */
 
     .site-header {
         height: 90px;
@@ -1633,7 +777,9 @@ a {
     }
 
 
-    /* Burger-Menü */
+    /* ========================================
+       BURGER-MENÜ
+    ======================================== */
 
     .main-menu {
         grid-template-columns: 1fr;
@@ -1660,7 +806,9 @@ a {
     }
 
 
-    /* Hero */
+    /* ========================================
+       HERO
+    ======================================== */
 
     .setlist-hero {
         min-height: 600px;
@@ -1685,7 +833,9 @@ a {
     }
 
 
-    /* Songbereiche */
+    /* ========================================
+       SONGBEREICHE
+    ======================================== */
 
     .song-section {
         gap: 50px;
@@ -1698,7 +848,9 @@ a {
     }
 
 
-    /* Einzelne Songs */
+    /* ========================================
+       EINZELNE SONGS
+    ======================================== */
 
     .song-list li {
         grid-template-columns:
@@ -1727,19 +879,18 @@ a {
     }
 
 
-    /* Hover auf Handy deaktivieren */
+    /* Auf Handys gibt es kein echtes
+       Darüberfahren mit der Maus.
+       Deshalb kein Vergrößern. */
 
     .song-list li:hover {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .song-list li::after {
-        display: none;
+        transform: none;
     }
 
 
-    /* Abschluss */
+    /* ========================================
+       ABSCHLUSS
+    ======================================== */
 
     .setlist-closing {
         padding: 90px 6vw;
@@ -1754,7 +905,20 @@ a {
     }
 
 
-    /* Footer */
+    /* ========================================
+       KONTAKT-BUTTON
+    ======================================== */
+
+    .contact-button {
+        gap: 25px;
+
+        padding: 16px 20px;
+    }
+
+
+    /* ========================================
+       FOOTER
+    ======================================== */
 
     .site-footer {
         flex-direction: column;
