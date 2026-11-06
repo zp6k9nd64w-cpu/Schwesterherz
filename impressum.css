@@ -294,11 +294,11 @@ main {
 
     font-family: var(--serif);
 
-    font-size: clamp(5rem, 12vw, 10rem);
+    font-size: clamp(4.5rem, 9vw, 8rem);
 
     font-weight: 500;
 
-    line-height: 0.85;
+    line-height: 0.95;
 
     letter-spacing: -0.05em;
 }
@@ -318,23 +318,43 @@ main {
 
 
 /* ========================================
-   IMPRESSUM INHALT
+   INHALTSÜBERSICHT
 ======================================== */
 
-.legal-content {
+.legal-nav {
     display: grid;
 
-    grid-template-columns:
-        minmax(130px, 0.35fr)
-        1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    gap: 25px 7vw;
-
-    max-width: 900px;
-
-    padding: 90px 0;
+    border-bottom: 1px solid var(--line);
 }
 
+.legal-nav a {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 22px 18px;
+
+    border-bottom: 1px solid transparent;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.legal-nav a:first-child {
+    border-right: 1px solid var(--line);
+}
+
+.legal-nav a:hover,
+.legal-nav a:focus-visible {
+    border-bottom-color: var(--rust);
+}
+
+.legal-nav a span:first-child,
 .legal-number {
     color: var(--rust);
 
@@ -346,26 +366,139 @@ main {
     text-transform: uppercase;
 }
 
-.legal-block {
-    padding-bottom: 45px;
+/* ========================================
+   RECHTLICHE INHALTE
+======================================== */
+
+.legal-section {
+    display: grid;
+
+    grid-template-columns: minmax(200px, 0.7fr) minmax(0, 1.3fr);
+
+    gap: 5vw;
+
+    padding: 90px 0;
 
     border-bottom: 1px solid var(--line);
 }
 
-.legal-block h2 {
-    margin: 0 0 14px;
+.legal-section[id] {
+    scroll-margin-top: 30px;
+}
+
+.legal-section-heading {
+    align-self: start;
+
+    position: sticky;
+    top: 30px;
+}
+
+.legal-section-heading .legal-number {
+    margin: 0 0 20px;
+}
+
+.legal-section-heading h2 {
+    margin: 0;
 
     font-family: var(--serif);
 
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(3rem, 5vw, 5rem);
 
     font-weight: 500;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.04em;
 }
 
-.legal-block p {
-    margin: 0;
+.legal-section-heading h2 span {
+    color: var(--rust);
 }
 
+.legal-block {
+    padding: 0 0 32px;
+    margin: 0 0 32px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.legal-block:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+.legal-block h3 {
+    margin: 0 0 18px;
+
+    font-family: var(--serif);
+
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+
+    font-weight: 500;
+
+    line-height: 1.15;
+}
+
+.legal-block h4 {
+    margin: 28px 0 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.legal-block p,
+.legal-block address {
+    margin: 0 0 16px;
+
+    font-style: normal;
+    line-height: 1.75;
+}
+
+.legal-block p:last-child {
+    margin-bottom: 0;
+}
+
+.legal-block a {
+    text-decoration: underline;
+    text-decoration-color: rgba(183, 102, 77, 0.55);
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+}
+
+.legal-block a:hover {
+    color: var(--rust);
+}
+
+.legal-block ul {
+    display: grid;
+    gap: 14px;
+
+    padding-left: 22px;
+    margin: 14px 0 0;
+
+    line-height: 1.7;
+}
+
+.legal-block li::marker {
+    color: var(--rust);
+}
+
+.legal-block li p {
+    margin: 8px 0 0;
+}
+
+.legal-block blockquote {
+    padding: 22px 24px;
+    margin: 16px 0 0;
+
+    border-left: 3px solid var(--rust);
+
+    background: var(--cream);
+
+    font-size: 14px;
+    line-height: 1.75;
+}
 
 /* ========================================
    ABSCHLUSSBEREICH
@@ -453,22 +586,6 @@ main {
 
 
 /* ========================================
-   TABLET
-======================================== */
-
-@media (max-width: 900px) {
-
-    .legal-content {
-        grid-template-columns:
-            minmax(100px, 0.3fr)
-            1fr;
-
-        gap: 25px 5vw;
-    }
-}
-
-
-/* ========================================
    HANDY
 ======================================== */
 
@@ -547,7 +664,7 @@ main {
 
     .legal-hero h1,
     .legal-closing h2 {
-        font-size: clamp(4rem, 20vw, 6.5rem);
+        font-size: clamp(3.6rem, 15vw, 6rem);
     }
 
     .legal-intro {
@@ -555,18 +672,32 @@ main {
     }
 
 
-    /* Impressum Inhalt */
-
-    .legal-content {
+    .legal-nav {
         grid-template-columns: 1fr;
+    }
 
-        gap: 12px;
+    .legal-nav a:first-child {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .legal-section {
+        grid-template-columns: 1fr;
+        gap: 32px;
 
         padding: 65px 0;
     }
 
-    .legal-block {
-        margin-bottom: 25px;
+    .legal-section-heading {
+        position: static;
+    }
+
+    .legal-section-heading h2 {
+        font-size: clamp(3rem, 12vw, 4.5rem);
+    }
+
+    .legal-block blockquote {
+        padding: 18px;
     }
 
 
