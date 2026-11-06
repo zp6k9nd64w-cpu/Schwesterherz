@@ -405,6 +405,10 @@ main {
     letter-spacing: -0.04em;
 }
 
+.legal-source-section[id="datenschutz"] > h2 {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+}
+
 .legal-source-content h3 {
     margin: 0 0 18px;
 
