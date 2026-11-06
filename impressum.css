@@ -370,7 +370,7 @@ main {
    RECHTLICHE INHALTE
 ======================================== */
 
-.legal-section {
+.legal-source-section {
     display: grid;
 
     grid-template-columns: minmax(200px, 0.7fr) minmax(0, 1.3fr);
@@ -382,22 +382,16 @@ main {
     border-bottom: 1px solid var(--line);
 }
 
-.legal-section[id] {
+.legal-source-section[id] {
     scroll-margin-top: 30px;
 }
 
-.legal-section-heading {
+.legal-source-section > h2 {
     align-self: start;
 
     position: sticky;
     top: 30px;
-}
 
-.legal-section-heading .legal-number {
-    margin: 0 0 20px;
-}
-
-.legal-section-heading h2 {
     margin: 0;
 
     font-family: var(--serif);
@@ -411,24 +405,7 @@ main {
     letter-spacing: -0.04em;
 }
 
-.legal-section-heading h2 span {
-    color: var(--rust);
-}
-
-.legal-block {
-    padding: 0 0 32px;
-    margin: 0 0 32px;
-
-    border-bottom: 1px solid var(--line);
-}
-
-.legal-block:last-child {
-    padding-bottom: 0;
-    margin-bottom: 0;
-    border-bottom: 0;
-}
-
-.legal-block h3 {
+.legal-source-content h3 {
     margin: 0 0 18px;
 
     font-family: var(--serif);
@@ -440,64 +417,28 @@ main {
     line-height: 1.15;
 }
 
-.legal-block h4 {
+.legal-source-content h4 {
     margin: 28px 0 10px;
 
     font-size: 14px;
     font-weight: 700;
 }
 
-.legal-block p,
-.legal-block address {
-    margin: 0 0 16px;
+.legal-source-content p {
+    margin: 0 0 18px;
 
-    font-style: normal;
     line-height: 1.75;
-}
-
-.legal-block p:last-child {
-    margin-bottom: 0;
-}
-
-.legal-block a {
-    text-decoration: underline;
-    text-decoration-color: rgba(183, 102, 77, 0.55);
-    text-underline-offset: 3px;
     overflow-wrap: anywhere;
 }
 
-.legal-block a:hover {
+.legal-source-content .legal-divider {
+    margin: 30px 0;
+
     color: var(--rust);
-}
 
-.legal-block ul {
-    display: grid;
-    gap: 14px;
+    letter-spacing: 0.12em;
 
-    padding-left: 22px;
-    margin: 14px 0 0;
-
-    line-height: 1.7;
-}
-
-.legal-block li::marker {
-    color: var(--rust);
-}
-
-.legal-block li p {
-    margin: 8px 0 0;
-}
-
-.legal-block blockquote {
-    padding: 22px 24px;
-    margin: 16px 0 0;
-
-    border-left: 3px solid var(--rust);
-
-    background: var(--cream);
-
-    font-size: 14px;
-    line-height: 1.75;
+    text-align: center;
 }
 
 /* ========================================
@@ -681,23 +622,17 @@ main {
         border-bottom: 1px solid var(--line);
     }
 
-    .legal-section {
+    .legal-source-section {
         grid-template-columns: 1fr;
         gap: 32px;
 
         padding: 65px 0;
     }
 
-    .legal-section-heading {
+    .legal-source-section > h2 {
         position: static;
-    }
 
-    .legal-section-heading h2 {
         font-size: clamp(3rem, 12vw, 4.5rem);
-    }
-
-    .legal-block blockquote {
-        padding: 18px;
     }
 
 
